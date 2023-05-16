@@ -1,0 +1,65 @@
+= Summit 2023: ARO Booth Demo
+
+== Run these to setup the demo.  This only needs to be run once on a fresh environment. Once run, do not run these again.
+. Run the following to set up this demo.
++
+[source,sh,role=execute]
+----
+cd $HOME
+wget -q https://raw.githubusercontent.com/0kashi/aroworkshop/master/yaml/ostoy-microservice-deployment.yaml
+curl -s https://raw.githubusercontent.com/0kashi/aroworkshop/master/yaml/ostoy-frontend-deployment.yaml | sed 's/#//g' | > ${HOME}/ostoy-frontend.deployment.yaml
+wget -q https://raw.githubusercontent.com/0kashi/bookbag-aro-summit2023-booth/main/workshop/content/setup-aro-demo.sh
+chmod +x setup-aro-demo.sh
+./setup-aro-demo.sh
+----
+
+. Copy and paste the output from the script into the terminal and run it to set the connection string environment variable.
+
+[WARNING]
+====
+DO NOT FORGET THIS STEP
+====
+
+== Environment information
+
+. Environment variables
++
+[source,text,nowrap]
+----
+export AZURE_SUBSCRIPTION_ID=%azure_subscription_id%
+export AZURE_TENANT_ID=%azure_tenant%
+export SERVICE_PRINCIPAL_CLIENT_ID=%azappid%
+export SERVICE_PRINCIPAL_CLIENT_SECRET=%azpass%
+export REGION=eastus
+export RESOURCE_GROUP=openenv-${GUID}
+export PROJECT_NAME=ostoy-${GUID}
+----
+
+== Azure portal info
+
+. Azure Portal: https://portal.azure.com.
+. Use `%openenv_admin_upn%` as the user id and `%bastion_password%` as the password to log into the portal.
+
+== Cluster information
+
+. OpenShift Web console
+[source,text,options=nowrap]
+----
+%aro_console%
+----
+
+. Login command:
++
+[source,sh,role=execute]
+----
+oc login -u kubeadmin -p %aro_kube_password% --insecure-skip-tls-verify=true %aro_api%
+----
+
+. Cluster Credentials
+[source,texinfo,options=nowrap]
+----
+{
+  "kubeadminPassword": "%aro_kube_password%",
+  "kubeadminUsername": "kubeadmin"
+}
+----
