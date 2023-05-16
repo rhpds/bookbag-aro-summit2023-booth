@@ -3,9 +3,12 @@ modules:
   1-setup:
     name: Demo Setup
     exit_sign: Continue
+  info:
+    name: Information
+    exit_sign: Continue
   2-demo_app:
     name: Demo App
     exit_sign: Continue
   3-clean_up:
-    name: Clean up 
+    name: Clean up
     exit_sign: Exit

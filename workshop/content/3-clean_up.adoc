@@ -1,6 +1,6 @@
 = Clean up
 
-Run these steps to after showing this demo. So that it is ready for the next visitor.
+Run these steps to after showing this demo. So that it is ready for the next visitor. Then 
 
 == Delete the application
 
@@ -8,6 +8,8 @@ Run these steps to after showing this demo. So that it is ready for the next vis
 ----
 oc delete -n $PROJECT_NAME -f ${HOME}/ostoy-microservice-deployment.yaml
 oc delete -n $PROJECT_NAME -f ${HOME}/ostoy-frontend-deployment.yaml
+oc delete -n $PROJECT_NAME secret secrets-store-creds
+oc delete -n $PROJECT_NAME SecretProviderClass azure-kvname
 ----
 
 == Delete Blob storage container contents
@@ -16,3 +18,5 @@ oc delete -n $PROJECT_NAME -f ${HOME}/ostoy-frontend-deployment.yaml
 ----
 az storage blob delete-batch --account-name ostoystorage${GUID} --source $PROJECT_NAME-container --pattern "*" --connection-string $CONNECTION_STRING
 ----
+
+Go back to the Demo page: <<2-demo_app.adoc>>
