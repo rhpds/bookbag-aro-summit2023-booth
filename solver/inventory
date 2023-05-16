@@ -1,0 +1,6 @@
+all:
+  hosts:
+    bastion:
+      ansible_host: bastion.brxhn.azure.opentlc.com
+      ansible_user: azure
+      guid: brxhn
