@@ -2,19 +2,8 @@
 name: Building security-focused containerized applications with Azure Red Hat OpenShift
 modules:
   activate:
-  - home
-  - lab_1_setup
-  - lab_2_connect_cluster
-  - lab_3_explore_aad
-  - lab_4_00_app_overview
-  - lab_4_01_app_deployment
-  - lab_4_02_app_logging
-  - lab_4_03_app_healthcheck
-  - lab_4_04_app_storage
-  - lab_4_05_app_confsecenv
-  - lab_4_06_app_networking
-  # - lab_4_07_app_scaling
-  # - lab_4_08_app_hpa
-  # - lab_5_worker-nodes
-  - lab_6_integrating_az_services
-  - conclusion
+  - 1-setup
+  - 2-demo_app
+  - 3-clean_up
+  - info
+

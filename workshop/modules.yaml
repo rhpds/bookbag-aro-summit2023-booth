@@ -1,50 +1,14 @@
 ---
 modules:
-  home:
-    name: Home
+  1-setup:
+    name: Demo Setup
     exit_sign: Continue
-  lab_1_setup:
-    name: Environment Setup
+  info:
+    name: Information
     exit_sign: Continue
-  lab_2_connect_cluster:
-    name: Connect to your cluster
+  2-demo_app:
+    name: Demo App
     exit_sign: Continue
-  lab_3_explore_aad:
-    name: Azure portal and authentication using AAD
-    exit_sign: Continue
-  lab_4_00_app_overview:
-    name: Introduction
-    exit_sign: Continue
-  lab_4_01_app_deployment:
-    name: Deployment
-    exit_sign: Continue
-  lab_4_02_app_logging:
-    name: Logging
-    exit_sign: Continue
-  lab_4_03_app_healthcheck:
-    name: Health Checks
-    exit_sign: Continue
-  lab_4_04_app_storage:
-    name: Storage
-    exit_sign: Continue
-  lab_4_05_app_confsecenv:
-    name: Configuration
-    exit_sign: Continue
-  lab_4_06_app_networking:
-    name: Networking
-    exit_sign: Continue
-  # lab_4_07_app_scaling:
-  #   name: Scaling
-  #   exit_sign: Continue
-  # lab_4_08_app_hpa:
-  #   name: Autoscaling
-  #   exit_sign: Continue
-  # lab_5_worker-nodes:
-  #   name: Managing Worker Nodes
-  #   exit_sign: Continue
-  lab_6_integrating_az_services:
-    name: Integrating Azure Services
-    exit_sign: Continue
-  conclusion:
-    name: Conclusion
+  3-clean_up:
+    name: Clean up
     exit_sign: Exit

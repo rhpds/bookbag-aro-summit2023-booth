@@ -1,0 +1,27 @@
+= Summit 2023: ARO Booth Demo
+
+== Run these to setup the demo.  
+
+[WARNING]
+====
+This only needs to be run once on a fresh environment. Once run, do not run these again.
+====
+
+. Run the following to set up this demo.
++
+[source,sh,role=execute]
+----
+cd $HOME
+wget -q https://raw.githubusercontent.com/0kashi/aroworkshop/master/yaml/ostoy-microservice-deployment.yaml
+curl -s https://raw.githubusercontent.com/0kashi/aroworkshop/master/yaml/ostoy-frontend-deployment.yaml | sed 's/#//g' | > ${HOME}/ostoy-frontend.deployment.yaml
+wget -q https://raw.githubusercontent.com/0kashi/bookbag-aro-summit2023-booth/main/workshop/content/setup-aro-demo.sh
+chmod +x setup-aro-demo.sh
+./setup-aro-demo.sh
+----
+
+. Copy and paste the output from the script into the terminal and run it to set the connection string environment variable.
+
+[WARNING]
+====
+DO NOT FORGET THIS STEP
+====
