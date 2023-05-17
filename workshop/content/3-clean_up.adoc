@@ -19,4 +19,4 @@ oc delete -n $PROJECT_NAME SecretProviderClass azure-kvname
 az storage blob delete-batch --account-name ostoystorage${GUID} --source $PROJECT_NAME-container --pattern "*" --connection-string $CONNECTION_STRING
 ----
 
-Go back to the Demo page: <<2-demo_app.adoc>>
+link:2-demo_app.adoc[Go back to the Demo Start]
