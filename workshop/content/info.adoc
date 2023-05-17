@@ -25,6 +25,7 @@ export PROJECT_NAME=ostoy-${GUID}
 == Cluster information
 
 . OpenShift Web console
++
 [source,text,options=nowrap]
 ----
 %aro_console%
@@ -38,6 +39,7 @@ oc login -u kubeadmin -p %aro_kube_password% --insecure-skip-tls-verify=true %ar
 ----
 
 . Cluster Credentials
++
 [source,texinfo,options=nowrap]
 ----
 {
