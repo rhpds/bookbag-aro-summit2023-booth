@@ -1,5 +1,12 @@
 = Summit 2023: ARO Booth Demo
 
+[WARNING]
+====
+This only needs to be run once on a fresh environment. Once run, do not run these again. 
+
+Do not linger on this page.  Once the set up is complete please keep the Demo app page as active.
+====
+
 == Connect to your bastion VM
 
 . In the terminal window to the right connect to the bastion VM (you can also just click the command below to have it copied and executed automatically):
@@ -9,6 +16,8 @@
 %bastion_ssh_command%
 ----
 
+The password for the user `azure` is `%bastion_password%`
+
 == Connect to Azure Arc
 
 [source,sh,role=execute]
@@ -17,11 +26,6 @@ curl -s https://raw.githubusercontent.com/microsoft/aroworkshop/master/resources
 ----
 
 == Run these to setup the demo.  
-
-[WARNING]
-====
-This only needs to be run once on a fresh environment. Once run, do not run these again.
-====
 
 . Run the following to set up this demo.
 +
