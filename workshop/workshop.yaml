@@ -1,5 +1,5 @@
 ---
-name: Building security-focused containerized applications with Azure Red Hat OpenShift
+name: ARO Application integration demo
 modules:
   activate:
   - 1-setup
