@@ -18,7 +18,7 @@ parameters:
   required: true
   value: quay.io/openshifthomeroom/workshop-dashboard:5.0.0
 - name: GIT_REPO
-  value: https://github.com/rhpds/bookbag-open-environment-azure-aro4.git
+  value: https://github.com/rhpds/bookbag-aro-summit2023-booth.git
 
 objects:
 - apiVersion: image.openshift.io/v1
