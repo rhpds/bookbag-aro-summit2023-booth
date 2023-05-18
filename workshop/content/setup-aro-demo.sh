@@ -19,13 +19,20 @@
 # Configure cluster with ARC
 curl -s https://raw.githubusercontent.com/microsoft/aroworkshop/master/resources/configure-arc.sh | bash & disown
 
+#get required manifests
+wget -q -P ${HOME} https://raw.githubusercontent.com/0kashi/aroworkshop/master/yaml/ostoy-microservice-deployment.yaml
+curl -s https://raw.githubusercontent.com/0kashi/aroworkshop/master/yaml/ostoy-frontend-deployment.yaml | sed 's/#//g' > ${HOME}/ostoy-frontend-deployment.yaml
+
+# Create the storage account
 az storage account create --name ostoystorage${GUID} \
     --resource-group $RESOURCE_GROUP \
     --location $REGION \
     --sku Standard_ZRS \
     --encryption-services blob
 
+#Store the connection string
 CONNECTION_STRING=$(az storage account show-connection-string --name ostoystorage${GUID} --resource-group ${RESOURCE_GROUP} -o tsv)
+echo $CONNETION_STRING > ${HOME}/connection_string
 
 az storage container create --name $PROJECT_NAME-container --account-name ostoystorage${GUID} --connection-string $CONNECTION_STRING
 sleep 5
@@ -35,6 +42,7 @@ az keyvault secret set --vault-name $KEYVAULT_NAME --name connectionsecret --val
 sleep 5
 az keyvault set-policy -n $KEYVAULT_NAME --secret-permissions get --spn $SERVICE_PRINCIPAL_CLIENT_ID
 sleep 5
+
 # Create SCC and SA
 oc new-project ${PROJECT_NAME}
 oc apply -f https://raw.githubusercontent.com/microsoft/aroworkshop/master/yaml/ostoyscc.yaml
@@ -49,4 +57,4 @@ echo "Please run the following to set proper environment variables."
 # echo "export PROJECT_NAME=ostoy-${GUID}"
 # echo "export KEYVAULT_NAME=secret-store-${GUID}"
 # echo "export GUID=$GUID"
-echo "export CONNECTION_STRING=$CONNECTION_STRING
+echo "export CONNECTION_STRING=$CONNECTION_STRING"

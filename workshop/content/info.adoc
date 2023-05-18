@@ -4,8 +4,8 @@ Information about this environment is listed on this page.
 
 == Environment information
 
-. Environment variables
-+
+Environment variables
+
 [source,text,nowrap]
 ----
 export AZURE_SUBSCRIPTION_ID=%azure_subscription_id%
@@ -40,10 +40,16 @@ oc login -u kubeadmin -p %aro_kube_password% --insecure-skip-tls-verify=true %ar
 
 . Cluster Credentials
 +
-[source,texinfo,options=nowrap]
+[source,text,options=nowrap]
 ----
 {
   "kubeadminPassword": "%aro_kube_password%",
   "kubeadminUsername": "kubeadmin"
 }
+----
+
+. Connection String
+[source,sh,options=nowrap]
+----
+cat ${HOME}/connection_string
 ----

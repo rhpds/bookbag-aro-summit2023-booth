@@ -72,6 +72,8 @@ oc apply -n $PROJECT_NAME -f ${HOME}/ostoy-frontend-deployment.yaml
 oc get route ostoy-route -o jsonpath='{.spec.host}{"\n"}' -n ${PROJECT_NAME}
 ----
 
+. Click on "ASO - Blob Storage" in the left menu and enter some files and content to store to AWS Blob Storage.
+
 . Now to confirm that this is not just some smoke and mirrors, let's confirm directly via the CLI. Run the following to list the contents of our Blob Storage.
 +
 [source,sh,role=execute]

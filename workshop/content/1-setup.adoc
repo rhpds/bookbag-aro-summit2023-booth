@@ -27,13 +27,6 @@ Login command:
 oc login -u kubeadmin -p %aro_kube_password% --insecure-skip-tls-verify=true %aro_api%
 ----
 
-== Connect to Azure Arc
-
-[source,sh,role=execute]
-----
-curl -s https://raw.githubusercontent.com/microsoft/aroworkshop/master/resources/configure-arc.sh | bash & disown
-----
-
 == Run these to setup the demo.  
 
 . Run the following to set up this demo.
@@ -41,8 +34,6 @@ curl -s https://raw.githubusercontent.com/microsoft/aroworkshop/master/resources
 [source,sh,role=execute]
 ----
 cd $HOME
-wget -q https://raw.githubusercontent.com/0kashi/aroworkshop/master/yaml/ostoy-microservice-deployment.yaml
-curl -s https://raw.githubusercontent.com/0kashi/aroworkshop/master/yaml/ostoy-frontend-deployment.yaml | sed 's/#//g' > ${HOME}/ostoy-frontend.deployment.yaml
 wget -q https://raw.githubusercontent.com/0kashi/bookbag-aro-summit2023-booth/main/workshop/content/setup-aro-demo.sh
 chmod +x setup-aro-demo.sh
 ./setup-aro-demo.sh
