@@ -16,6 +16,25 @@
 # PROJECT_NAME=ostoy-${GUID}
 # KEYVAULT_NAME=secret-store-${GUID}
 
+
+# List of environment variables to check
+variables=("AZURE_SUBSCRIPTION_ID" "AZURE_TENANT_ID" "SERVICE_PRINCIPAL_CLIENT_ID" "SERVICE_PRINCIPAL_CLIENT_SECRET" "REGION" "RESOURCE_GROUP" "PROJECT_NAME" "KEYVAULT_NAME")
+
+# check if a variable is not set
+is_variable_unset() {
+    [[ -z "${!1}" ]]
+}
+
+# Iterate over the variables and check if they are not set
+for variable in "${variables[@]}"; do
+    if is_variable_unset "$variable"; then
+        echo "$variable is not set."
+    fi
+done
+
+#Create password for portal when required to change pw and store to file
+openssl rand -base64 48 | tr -dc 'a-zA-Z0-9' | head -c 12 > azure_portal.pwd
+
 # Configure cluster with ARC
 curl -s https://raw.githubusercontent.com/microsoft/aroworkshop/master/resources/configure-arc.sh | bash & disown
 
@@ -31,8 +50,7 @@ az storage account create --name ostoystorage${GUID} \
     --encryption-services blob
 
 #Store the connection string
-CONNECTION_STRING=$(az storage account show-connection-string --name ostoystorage${GUID} --resource-group ${RESOURCE_GROUP} -o tsv)
-echo $CONNETION_STRING > ${HOME}/connection_string
+az storage account show-connection-string --name ostoystorage${GUID} --resource-group ${RESOURCE_GROUP} -o tsv | tee ${HOME}/connection_string
 
 az storage container create --name $PROJECT_NAME-container --account-name ostoystorage${GUID} --connection-string $CONNECTION_STRING
 sleep 5

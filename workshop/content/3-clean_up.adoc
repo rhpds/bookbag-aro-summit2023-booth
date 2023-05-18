@@ -1,6 +1,6 @@
 = Clean up
 
-Run these steps to after showing this demo. So that it is ready for the next visitor. Then 
+Run these steps after showing this demo. So that it is ready for the next visitor. Then 
 
 == Delete the application
 
