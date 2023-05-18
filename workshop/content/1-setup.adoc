@@ -33,15 +33,14 @@ oc login -u kubeadmin -p %aro_kube_password% --insecure-skip-tls-verify=true %ar
 +
 [source,sh,role=execute]
 ----
-cd $HOME
-wget -q https://raw.githubusercontent.com/0kashi/bookbag-aro-summit2023-booth/main/workshop/content/setup-aro-demo.sh
+wget -q -P ${HOME} https://raw.githubusercontent.com/0kashi/bookbag-aro-summit2023-booth/main/workshop/content/setup-aro-demo.sh
 chmod +x setup-aro-demo.sh
 ./setup-aro-demo.sh
 ----
 
-. Copy and paste the output from the script into the terminal and run it to set the connection string environment variable.
-
-[WARNING]
-====
-DO NOT FORGET THIS STEP
-====
+. Run the following to store the connection string as an envvar. 
++
+[source,sh,role=execute]
+----
+CONNECTION_STRING=$(<${HOME}/connection_string)
+----
