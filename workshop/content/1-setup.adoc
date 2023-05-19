@@ -31,7 +31,7 @@ oc login -u kubeadmin -p %aro_kube_password% --insecure-skip-tls-verify=true %ar
 
 . Run the following to set up this demo.
 +
-[source,sh,role=execute]
+[source,sh]
 ----
 wget -q -P ${HOME} https://raw.githubusercontent.com/0kashi/bookbag-aro-summit2023-booth/main/workshop/content/setup-aro-demo.sh
 chmod +x setup-aro-demo.sh
