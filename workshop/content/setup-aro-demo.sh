@@ -68,7 +68,7 @@ oc apply -f https://raw.githubusercontent.com/microsoft/aroworkshop/master/yaml/
 oc create sa ostoy-sa -n $PROJECT_NAME
 oc adm policy add-scc-to-user ostoyscc system:serviceaccount:${PROJECT_NAME}:ostoy-sa -n ${PROJECT_NAME}
 
-echo "Please run the following to set proper environment variables."
+#echo "Please run the following to set proper environment variables."
 # echo "export SERVICE_PRINCIPAL_CLIENT_SECRET=$SERVICE_PRINCIPAL_CLIENT_SECRET"
 # echo "export SERVICE_PRINCIPAL_CLIENT_ID=$SERVICE_PRINCIPAL_CLIENT_ID"
 # echo "export RESOURCE_GROUP=$RESOURCE_GROUP"
@@ -76,4 +76,4 @@ echo "Please run the following to set proper environment variables."
 # echo "export PROJECT_NAME=ostoy-${GUID}"
 # echo "export KEYVAULT_NAME=secret-store-${GUID}"
 # echo "export GUID=$GUID"
-echo "export CONNECTION_STRING=$CONNECTION_STRING"
+#echo "export CONNECTION_STRING=$CONNECTION_STRING"
