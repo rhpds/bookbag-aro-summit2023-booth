@@ -25,7 +25,7 @@ export PROJECT_NAME=ostoy-${GUID}
 +
 [source,sh,role=execute]
 ----
-cat ${HOME}/azure_portal.pwd
+cat ${HOME}/azure_portal.pwd; echo
 ----
 . From then on use the password in the above file to log into the portal.
 
