@@ -51,6 +51,7 @@ az storage account create --name ostoystorage${GUID} \
 
 #Store the connection string
 az storage account show-connection-string --name ostoystorage${GUID} --resource-group ${RESOURCE_GROUP} -o tsv | tee ${HOME}/connection_string
+CONNECTION_STRING=$(<${HOME}/connection_string)
 
 az storage container create --name $PROJECT_NAME-container --account-name ostoystorage${GUID} --connection-string $CONNECTION_STRING
 sleep 5
